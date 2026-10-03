@@ -1,0 +1,80 @@
+clxcb-truetype — authors and contributors
+=========================================
+
+clxcb-truetype is a port of clx-truetype to CLXCB.  Everyone below has
+worked on it or on the code it comes from.  Some of their work has since
+been rewritten or removed in this particular port: the CLX-specific
+code, the old manual and the StumpWM patch.  Even removed code was very
+useful to me to gain the understanding of the library, so they are
+credited for it all the same.
+
+What clxcb-truetype adds is the XCB port: the code that talks to the X
+server through XCB (clxcb) instead of CLX.  Everything else: the font
+class and cache, metrics and rasterization is clx-truetype's work,
+carried over.  Credit for it, and copyright in it, stays with its
+authors below.
+
+The license, and what we could not confirm
+------------------------------------------
+
+clx-truetype was published under the MIT license (declared in its system
+definition; it had no LICENSE file, and its source files carry no
+copyright headers).  According to my online research -- public
+discussions around clx-truetype and its forks, and the StumpWM port --
+it grew out of the TrueType rendering written for McCLIM by Gilbert
+Baumann and Andy Hefner.
+
+I asked on McCLIM's issue tracker, on Codeberg.  McCLIM's maintainer
+answered (October 2026) that McCLIM has always been under the LGPL,
+version 2.1 or later, and that how and by whom clx-truetype was forked
+is not known: either from McCLIM's code, or from code Gilbert Baumann
+and Andy Hefner gave under a separate license.  That has not been
+settled.
+
+So clxcb-truetype is distributed under the LGPL, version 2.1 or later,
+McCLIM's own license, which is right in either case.  The MIT notice
+clx-truetype's code came with is kept in LICENSE, as the MIT license
+requires.  If you are one of the authors and know more, please tell me
+(see the issue tracker in the system definition).
+
+The TrueType rendering for McCLIM, from which clx-truetype grew
+(according to online research; see above)
+---------------------------------------------------------------
+
+  Gilbert Baumann
+  Andy Hefner
+
+clx-truetype
+------------
+
+  Michael Filonenko (filonenko-mikhail)
+      Author and maintainer of clx-truetype, 2012-2016: the font class,
+      the font cache, metrics and bounding boxes, rasterization with
+      cl-vectors and cl-aa, the Xrender text drawing, bounding box and
+      alpha map caching, the documentation and its metrics diagram, and
+      the StumpWM integration patch.
+
+  Kay Zheng (l04m33)
+      Fixed resources leaked by DRAW-TEXT and friends (2016).
+
+  madand
+      Fixed a type error under (safety 3) (2020).
+
+  Morgan Hager (goose121)
+      Maintained the principal clx-truetype fork from 2021: font value
+      caches with cacle, *ALLOW-FIXED-PITCH-P* (2025), and merging the
+      other forks' fixes.
+
+  Mihail Ivanchev (MIvanchev)
+      Documented clx-truetype's situation and its principal fork (2024).
+
+clxcb-truetype
+--------------
+
+  Arthur Miller
+      The port to XCB and clxcb (2026), and only that: drawables over
+      XIDs with deferred, thread-safe frees, the Xrender path on clxcb's
+      RENDER extension, locking around font loaders, and the fixes since.
+
+clxcb-truetype is built on zpb-ttf, cl-vectors, cl-paths-ttf, cl-aa,
+cacle, trivial-garbage and bordeaux-threads, and their authors' work.
