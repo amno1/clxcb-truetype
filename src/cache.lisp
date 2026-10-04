@@ -35,7 +35,7 @@
                (color (xcb-render:make-color (logior (ash r 8) r)
                                              (logior (ash g 8) g)
                                              (logior (ash b 8) b)
-                                             #xfff)))
+                                             #xffff)))
           (create-solid-fill connection id color)
           (setf (gethash colour conn-table) id)))))
 
